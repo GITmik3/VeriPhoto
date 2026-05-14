@@ -28,6 +28,8 @@ Su Windows puoi usare anche `run.bat` se `streamlit` non è nel PATH.
 - `core/__init__.py` — package `core`
 
 ## Il Flusso dei Dati (Data Flow)
+
+```text
 [ Utente carica l'immagine ]
            │
            ▼
