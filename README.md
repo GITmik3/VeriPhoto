@@ -27,6 +27,34 @@ Su Windows puoi usare anche `run.bat` se `streamlit` non è nel PATH.
 - `core/exif_analyzer.py` — estrazione metadati e mappa Folium
 - `core/__init__.py` — package `core`
 
+## Il Flusso dei Dati (Data Flow)
+[ Utente carica l'immagine ]
+           │
+           ▼
+┌──────────────────────────────────────┐
+│       main.py (Streamlit UI)         │ <── Gestisce lo stato e il layout
+└──────────────────────────────────────┘
+           │ (Passa i Byte grezzi)
+           ▼
+┌──────────────────────────────────────┐
+│     core/exif_analyzer.py            │
+│  1. Validazione (Pillow)             │
+│  2. Hashing (MD5/SHA256 & ImageHash) │ <── Analisi in pipeline parallela
+│  3. Estrazione EXIF & XMP            │
+│  4. Calcolo GPS & Generazione Mappa  │
+└──────────────────────────────────────┘
+           │
+           ▼ (Incapasula tutto in)
+┌──────────────────────────────────────┐
+│       ExifAnalysisResult             │ <── Oggetto dati tipizzato e stabile
+└──────────────────────────────────────┘
+           │
+           ▼
+┌──────────────────────────────────────┐
+│       main.py (Rendering UI)         │
+│  - Tabella sinistra (Dati ordinati)  │ <── Mostra i risultati all'utente
+│  - Mappa destra (Componente HTML)     │
+└──────────────────────────────────────┘
 ## Nota legale / privacy
 
 Usa lo strumento solo su immagini che hai il diritto di analizzare. Coordinate e metadati possono essere assenti, errati o manipolati.
