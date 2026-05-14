@@ -1,0 +1,21 @@
+# VeriPhoto — dipendenze principali
+# Interfaccia web
+streamlit>=1.28.0
+
+# Lettura e manipolazione immagini
+Pillow>=10.0.0
+
+# Estrazione metadati EXIF da JPEG/TIFF
+exifread>=3.0.0
+
+# Mappa interattiva per coordinate GPS
+folium>=0.15.0
+
+# Richieste HTTP (moduli OSINT futuri)
+requests>=2.31.0
+
+# Fingerprint visivo (ricerca duplicati / correlazione OSINT)
+ImageHash>=4.3.1
+
+# Richiesto da Pillow per leggere XMP in modo sicuro (evita warning e abilita getxmp)
+defusedxml>=0.7.1
