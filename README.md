@@ -57,6 +57,7 @@ Su Windows puoi usare anche `run.bat` se `streamlit` non è nel PATH.
 │  - Tabella sinistra (Dati ordinati)  │ <── Mostra i risultati all'utente
 │  - Mappa destra (Componente HTML)     │
 └──────────────────────────────────────┘
+```
 ## Nota legale / privacy
 
 Usa lo strumento solo su immagini che hai il diritto di analizzare. Coordinate e metadati possono essere assenti, errati o manipolati.
